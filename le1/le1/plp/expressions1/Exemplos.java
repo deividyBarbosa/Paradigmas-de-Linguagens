@@ -14,7 +14,11 @@ public class Exemplos{
         );
         Programa programa1 = new Programa(expr1);
         System.out.println("Expressão 1: -4 + 12 - 3 = ");
-        programa1.executar();
+        if (programa1.checaTipo()) {
+            programa1.executar();
+        } else {
+            System.out.println("Erro de tipo!");
+        }
         System.out.println();
         
         // Expressão 2: length("abc") + 3
@@ -24,7 +28,11 @@ public class Exemplos{
         );
         Programa programa2 = new Programa(expr2);
         System.out.println("Expressão 2: length(\"abc\") + 3 = ");
-        programa2.executar();
+        if (programa2.checaTipo()) {
+            programa2.executar();
+        } else {
+            System.out.println("Erro de tipo!");
+        }
         System.out.println();
         
         // Expressão 3: true and false
@@ -34,7 +42,11 @@ public class Exemplos{
         );
         Programa programa3 = new Programa(expr3);
         System.out.println("Expressão 3: true and false = ");
-        programa3.executar();
+        if (programa3.checaTipo()) {
+            programa3.executar();
+        } else {
+            System.out.println("Erro de tipo!");
+        }
         System.out.println();
         
         // Expressão 4: "curso" ++ " de " ++ " paradigmas"
@@ -47,21 +59,24 @@ public class Exemplos{
         );
         Programa programa4 = new Programa(expr4);
         System.out.println("Expressão 4: \"curso\" ++ \" de \" ++ \" paradigmas\" = ");
-        programa4.executar();
+        if (programa4.checaTipo()) {
+            programa4.executar();
+        } else {
+            System.out.println("Erro de tipo!");
+        }
         System.out.println();
         
-        // Expressão 5: 1 + true (erro de tipo)
-        try {
-            Expressao expr5 = new ExpSoma(
-                new ValorInteiro(1),
-                new ValorBooleano(true)
-            );
-            Programa programa5 = new Programa(expr5);
-            System.out.println("Expressão 5: 1 + true = ");
+        // Expressão 5: 1 + true (tipo incorreto)
+        Expressao expr5 = new ExpSoma(
+            new ValorInteiro(1),
+            new ValorBooleano(true)
+        );
+        Programa programa5 = new Programa(expr5);
+        System.out.println("Expressão 5: 1 + true = ");
+        if (programa5.checaTipo()) {
             programa5.executar();
-        } catch (Exception e) {
-            System.out.println("Expressão 5: 1 + true = Erro de tipo esperado!");
-            System.out.println("Motivo: Não é possível somar um inteiro com um booleano");
+        } else {
+            System.out.println("Erro de tipo! Não é possível somar um inteiro com um booleano");
         }
     }
 }
