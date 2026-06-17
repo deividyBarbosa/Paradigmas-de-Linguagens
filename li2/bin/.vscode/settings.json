@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": ["."],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [],
+    "java.import.gradle.enabled": false,
+    "java.import.maven.enabled": false
+}
